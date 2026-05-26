@@ -1,0 +1,66 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "date": "2025-04-15",
+      "tag": "Communiqué",
+      "title": "Lancement officiel du projet Kafumbu Smart City",
+      "excerpt": "Le projet de construction de la cité moderne de Kafumbu est officiellement lancé avec la signature des premiers accords de partenariat stratégique.",
+      "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": 2,
+      "date": "2025-03-28",
+      "tag": "Technique",
+      "title": "Le barrage hydroélectrique entre en phase de faisabilité",
+      "excerpt": "Les études géotechniques et hydrauliques sont en cours pour valider le site d'implantation du barrage de 15 MW sur le fleuve Kafumbu.",
+      "image": "https://images.unsplash.com/photo-1581094288338-2314dddb7bc3?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": 3,
+      "date": "2025-02-10",
+      "tag": "Finance",
+      "title": "Kafumbu attire des investisseurs internationaux",
+      "excerpt": "Plusieurs fonds d'investissement internationaux ont exprimé leur intérêt pour le projet lors du Forum Économique d'Afrique centrale.",
+      "image": "https://images.unsplash.com/photo-1454165833762-026522f22143?auto=format&fit=crop&q=80&w=800"
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+      "title": "Vision Architecturale",
+      "category": "Design"
+    },
+    {
+      "id": 2,
+      "url": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&q=80&w=1200",
+      "title": "Barrage Hydroélectrique",
+      "category": "Énergie"
+    },
+    {
+      "id": 3,
+      "url": "https://images.unsplash.com/photo-1541888081622-1ce82ebdb324?auto=format&fit=crop&q=80&w=1200",
+      "title": "Infrastructures Routières",
+      "category": "BTP"
+    },
+    {
+      "id": 4,
+      "url": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200",
+      "title": "Quartier Résidentiel",
+      "category": "Habitat"
+    },
+    {
+      "id": 5,
+      "url": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+      "title": "Centre d'Affaires",
+      "category": "Business"
+    },
+    {
+      "id": 6,
+      "url": "https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=1200",
+      "title": "Espaces Verts",
+      "category": "Écologie"
+    }
+  ]
+}

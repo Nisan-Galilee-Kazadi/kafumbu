@@ -1,0 +1,350 @@
+openapi: 3.0.3
+info:
+  title: Kafumbu Smart City — API Paiements
+  description: |
+    API unifiée pour la levée de fonds : **Stripe** (cartes Visa/Mastercard, wallets),
+    **PayPal**, et **Mobile Money** (Orange / MTN / Airtel selon intégration réelle).
+
+    **Visa** n’est pas un processeur séparé : les paiements carte passent par **Stripe**
+    (PaymentIntents + Elements) ou par **PayPal** (cartes invitées dans le flux PayPal).
+
+    Tous les montants sont en **minor units** (centimes) sauf mention contraire sur un endpoint.
+  version: 0.1.0
+servers:
+  - url: https://api.example.com/v1
+    description: Production
+  - url: http://localhost:4000/v1
+    description: Développement
+
+tags:
+  - name: Paiements
+    description: Création et suivi des paiements
+  - name: Stripe
+    description: Intents, confirmation côté client, webhooks
+  - name: PayPal
+    description: Ordres PayPal et capture
+  - name: Mobile Money
+    description: Initiation et callbacks opérateurs / agrégateur
+
+paths:
+  /payments/methods:
+    get:
+      tags: [Paiements]
+      summary: Moyens de paiement disponibles pour le client
+      operationId: listPaymentMethods
+      responses:
+        '200':
+          description: Liste des providers activés côté serveur
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  methods:
+                    type: array
+                    items:
+                      type: string
+                      enum: [stripe, paypal, mobile_money]
+
+  /payments:
+    post:
+      tags: [Paiements]
+      summary: Créer une intention de paiement (choix du provider)
+      operationId: createPayment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePaymentRequest'
+      responses:
+        '201':
+          description: Paiement créé — payload dépend du provider
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePaymentResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /payments/{paymentId}:
+    get:
+      tags: [Paiements]
+      summary: Détail et statut d’un paiement
+      operationId: getPayment
+      parameters:
+        - $ref: '#/components/parameters/PaymentId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /payments/{paymentId}/stripe/confirm:
+    post:
+      tags: [Stripe]
+      summary: Après succès côté client (optionnel si tout est webhook-driven)
+      operationId: confirmStripePayment
+      parameters:
+        - $ref: '#/components/parameters/PaymentId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                paymentIntentId:
+                  type: string
+      responses:
+        '200':
+          description: Statut mis à jour
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /webhooks/stripe:
+    post:
+      tags: [Stripe]
+      summary: Webhook Stripe (signature Stripe-Signature)
+      operationId: stripeWebhook
+      description: |
+        Événements typiques : `payment_intent.succeeded`, `payment_intent.payment_failed`,
+        `charge.refunded`. Toujours vérifier la signature.
+      responses:
+        '200':
+          description: Reçu
+        '400':
+          description: Signature invalide
+
+  /payments/paypal/order:
+    post:
+      tags: [PayPal]
+      summary: Créer une commande PayPal (Orders v2)
+      operationId: createPayPalOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount, currency, reference]
+              properties:
+                amount:
+                  type: string
+                  example: "50.00"
+                currency:
+                  type: string
+                  example: USD
+                reference:
+                  type: string
+                  description: ID métier (don, campagne, etc.)
+      responses:
+        '201':
+          description: orderId + approve link
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: string
+                  approveUrl:
+                    type: string
+
+  /payments/paypal/capture:
+    post:
+      tags: [PayPal]
+      summary: Capturer un ordre après retour utilisateur
+      operationId: capturePayPalOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [orderId]
+              properties:
+                orderId:
+                  type: string
+      responses:
+        '200':
+          description: Capturé
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /webhooks/paypal:
+    post:
+      tags: [PayPal]
+      summary: Webhook PayPal (vérification des en-têtes PayPal)
+      operationId: paypalWebhook
+      responses:
+        '200':
+          description: OK
+
+  /payments/mobile-money/init:
+    post:
+      tags: [Mobile Money]
+      summary: Initier un débit / push USSD / STK selon opérateur
+      operationId: initMobileMoney
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount, currency, phone, operator, reference]
+              properties:
+                amount:
+                  type: number
+                  example: 50000
+                  description: Montant en unité locale mineure ou majeure selon contrat opérateur
+                currency:
+                  type: string
+                  example: CDF
+                phone:
+                  type: string
+                  example: "243XXXXXXXXX"
+                operator:
+                  type: string
+                  enum: [orange, mtn, airtel, other]
+                reference:
+                  type: string
+      responses:
+        '201':
+          description: Transaction initiée
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactionId:
+                    type: string
+                  status:
+                    type: string
+                    enum: [pending, requires_action, failed]
+                  instructions:
+                    type: string
+                    nullable: true
+
+  /webhooks/mobile-money:
+    post:
+      tags: [Mobile Money]
+      summary: Callback agrégateur / opérateur (statut final)
+      operationId: mobileMoneyWebhook
+      responses:
+        '200':
+          description: OK
+
+components:
+  parameters:
+    PaymentId:
+      name: paymentId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    BadRequest:
+      description: Requête invalide
+    NotFound:
+      description: Paiement introuvable
+
+  schemas:
+    CreatePaymentRequest:
+      type: object
+      required: [provider, amount, currency, reference]
+      properties:
+        provider:
+          type: string
+          enum: [stripe, paypal, mobile_money]
+        amount:
+          type: integer
+          description: Montant en plus petite unité (ex. cents USD)
+          example: 5000
+        currency:
+          type: string
+          example: USD
+        reference:
+          type: string
+          description: Référence métier (don, investissement, id utilisateur anonyme)
+        customerEmail:
+          type: string
+          format: email
+        metadata:
+          type: object
+          additionalProperties: true
+        mobileMoney:
+          type: object
+          description: Requis si provider=mobile_money
+          properties:
+            phone:
+              type: string
+            operator:
+              type: string
+              enum: [orange, mtn, airtel, other]
+
+    CreatePaymentResponse:
+      type: object
+      properties:
+        paymentId:
+          type: string
+          format: uuid
+        provider:
+          type: string
+        status:
+          type: string
+          enum: [requires_action, pending, succeeded, failed]
+        stripe:
+          type: object
+          nullable: true
+          properties:
+            clientSecret:
+              type: string
+              description: Pour Payment Element / confirmCardPayment
+            publishableKey:
+              type: string
+        paypal:
+          type: object
+          nullable: true
+          properties:
+            orderId:
+              type: string
+            approveUrl:
+              type: string
+        mobileMoney:
+          type: object
+          nullable: true
+          properties:
+            transactionId:
+              type: string
+            instructions:
+              type: string
+
+    Payment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        provider:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        status:
+          type: string
+          enum: [pending, requires_action, succeeded, failed, refunded]
+        reference:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        providerRef:
+          type: string
+          description: pi_xxx, PayPal order id, ou id agrégateur

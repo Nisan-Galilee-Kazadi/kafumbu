@@ -1,0 +1,29 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diamond Background Desktop -->
+  <defs>
+    <style>
+      .ksc-diamond { stroke: #0B1526; }
+      .ksc-diamond-inner { stroke: #0B1526; opacity: 0.4; }
+      .ksc-text-main { fill: #10b981; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; font-weight: 900; font-size: 44px; }
+      .ksc-text-sub { fill: #0B1526; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 1.2px; opacity: 0.8; }
+    </style>
+  </defs>
+
+  <!-- Outer Diamond -->
+  <path class="ksc-diamond" d="M100 10 L190 100 L100 190 L10 100 Z" fill="none" stroke-width="5" stroke-linejoin="miter"/>
+
+  <!-- Inner decorative diamond -->
+  <path class="ksc-diamond-inner" d="M100 36 L164 100 L100 164 L36 100 Z" fill="none" stroke-width="2" stroke-dasharray="8 4"/>
+
+  <!-- Vertical line -->
+  <line x1="100" y1="10" x2="100" y2="190" stroke="#0B1526" stroke-width="1" opacity="0.15"/>
+
+  <!-- Text: KSC -->
+  <text x="100" y="110" class="ksc-text-main" text-anchor="middle" dominant-baseline="middle">KSC</text>
+
+  <!-- Divider line under KSC -->
+  <line x1="70" y1="130" x2="130" y2="130" stroke="#10b981" stroke-width="4" opacity="0.3"/>
+
+  <!-- Text: GLOBAL -->
+  <text x="100" y="155" class="ksc-text-sub" text-anchor="middle" dominant-baseline="middle">GLOBAL</text>
+</svg>

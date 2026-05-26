@@ -1,0 +1,16 @@
+# Routage React & Protection de l'API pour Kafumbu Smart City
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# 1. Protection de l'API (Laisser Node.js gérer /api)
+RewriteRule ^api/(.*) - [L]
+
+# 2. Routage React Router SPA
+# Si le fichier ou le dossier existe physiquement, Apache le sert directement
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Sinon, envoyer toutes les autres requêtes à index.html
+RewriteRule ^(.*)$ index.html [L,QSA]

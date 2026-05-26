@@ -1,0 +1,32 @@
+{
+  "campaigns": [
+    {
+      "id": 1778601091517,
+      "raised": 0,
+      "contributors": 0,
+      "status": "active",
+      "urgency": "medium",
+      "milestones": [],
+      "benefits": [],
+      "donations": [],
+      "title": "test",
+      "description": "test",
+      "target": 5000000,
+      "startDate": "2026-05-12",
+      "endDate": "2026-05-14"
+    }
+  ],
+  "statistics": {
+    "totalRaised": 0,
+    "totalContributors": 0,
+    "activeCampaigns": 0,
+    "averageDonation": 0
+  },
+  "settings": {
+    "modalDelay": 3000,
+    "checkInterval": 300000,
+    "sessionStorageKey": "fundraisingModalClosed",
+    "currency": "USD",
+    "timezone": "Africa/Kinshasa"
+  }
+}
