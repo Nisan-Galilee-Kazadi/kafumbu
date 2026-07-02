@@ -31,7 +31,7 @@ const KscLogo = () => (
     {/* Refined Brand Text */}
     <div className="relative z-10 flex flex-col items-center pt-1">
       <span className="text-emerald-500 font-black text-[16px] leading-tight tracking-tighter drop-shadow-sm">
-        KSC
+        KMC
       </span>
       <div className="w-5 h-[2px] bg-emerald-500/30 -mt-0.5" />
       <span className="text-white font-bold text-[6px] tracking-[0.2em] uppercase opacity-70 mt-0.5">

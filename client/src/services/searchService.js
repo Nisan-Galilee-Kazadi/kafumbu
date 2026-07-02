@@ -1,5 +1,5 @@
 /**
- * Service de recherche global pour Kafumbu
+ * Service de recherche global pour Kafumbu (KMC)
  * Indexe et recherche à travers tout le contenu du site
  */
 
@@ -12,7 +12,7 @@ const SEARCH_INDEX = [
     keywords: [
       "accueil",
       "home",
-      "kafumbu",
+      "Kafumbu",
       "bienvenue",
       "projet",
       "plateforme",
@@ -21,7 +21,7 @@ const SEARCH_INDEX = [
       "développement",
     ],
     content:
-      "Bienvenue sur Kafumbu. Découvrez le projet phare du développement durable en RDC. Un projet transformateur alliant infrastructure, innovation et durabilité. Investissez dans l'avenir de la République Démocratique du Congo.",
+      "Bienvenue sur Kafumbu Melys City (KMC). Découvrez le projet de cité planifiée : 600 maisons, marché central, écoles, hôpitaux, pharmacies, fermes laitières et tourisme culturel.",
     category: "Pages",
     icon: "FiHome",
   },
@@ -44,7 +44,7 @@ const SEARCH_INDEX = [
       "durabilité",
     ],
     content:
-      "Smart City de Kafumbu : Une métropole futuriste pour 2 millions d'habitants. Intégrant technologie 5G, IoT, énergie renouvelable, transports intelligents et durabilité environnementale. Infrastructure de classe mondiale avec services numériques avancés. Zone économique spéciale pour entreprises technologiques. Centre financier panafricain.",
+      "Smart City de Kafumbu (KMC) : cité planifiée et durable axée sur l'habitabilité (600 maisons), services sociaux, marché central, tourisme culturel et fermes d'élevage laitières.",
     category: "Infrastructure",
     icon: "FiBriefcase",
   },
@@ -137,7 +137,7 @@ const SEARCH_INDEX = [
       "vidéo",
     ],
     content:
-      "Dernières actualités et photos du projet Kafumbu. Galerie photos du chantier. Articles détaillés sur la progression du projet. Vidéos de drone des sites de construction.",
+      "Dernières actualités et photos du projet Kafumbu. Galerie photos. Articles sur la progression du projet, le tourisme culturel et les activités agricoles locales.",
     category: "Contenu",
     icon: "FiImage",
   },
@@ -189,7 +189,7 @@ const SEARCH_INDEX = [
       "support",
     ],
     content:
-      "Formulaire de contact pour toute question. Email: contact@kafumbu.cd. Téléphone: +243 XXX XXX XXX. Équipe disponible 24/7 pour votre assistance.",
+      "Formulaire de contact pour toute question. Email: contact@Kafumbu.cd. Téléphone: +243 XXX XXX XXX. Équipe disponible 24/7 pour votre assistance.",
     category: "Support",
     icon: "FiMail",
   },
@@ -211,7 +211,9 @@ function escapeRegExp(text) {
 }
 
 function getQueryWords(query) {
-  return normalizeText(query).split(/\s+/).filter((w) => w.length > 0);
+  return normalizeText(query)
+    .split(/\s+/)
+    .filter((w) => w.length > 0);
 }
 
 function buildOccurrenceExcerpt(text, index, wordLength, maxLength = 170) {

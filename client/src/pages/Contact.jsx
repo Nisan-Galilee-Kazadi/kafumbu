@@ -51,7 +51,7 @@ export default function Contact() {
               {
                 icon: FiMail,
                 label: t("ui.contact.institutional_email"),
-                val: "contact@kafumbu.cd",
+                val: "contact@Kafumbu.cd",
               },
               {
                 icon: FiPhone,

@@ -16,6 +16,19 @@ const NAV_LINKS = [
   { key: "home", path: "/" },
   { key: "about", path: "/a-propos" },
   { key: "smartCity", path: "/smart-city" },
+  {
+    key: "project",
+    path: "/projet/habitation",
+    subLinks: [
+      { key: "habitation", path: "/projet/habitation" },
+      { key: "hopitaux", path: "/projet/hopitaux" },
+      { key: "ecoles", path: "/projet/ecoles" },
+      { key: "grandMarche", path: "/projet/grand-marche" },
+      { key: "tourisme", path: "/projet/tourisme" },
+      { key: "culture", path: "/projet/culture-perenne" },
+      { key: "elevage", path: "/projet/elevage-laitier" },
+    ],
+  },
   { key: "barrage", path: "/barrage" },
   { key: "funding", path: "/financement" },
   {
@@ -61,13 +74,13 @@ const KscLogo = ({ isDark = false }) => (
     {/* Refined Brand Text */}
     <div className="relative z-10 flex flex-col items-center pt-2">
       <span className="ksc-nav-logo-text text-emerald-600 font-black text-[22px] leading-tight tracking-tighter drop-shadow-md">
-        KSC
+        KMC
       </span>
       <div className="w-8 h-[2px] bg-emerald-600/30 -mt-0.5" />
       <span
-        className={`${isDark ? "text-white" : "text-[#0B1526]"} font-bold text-[8px] tracking-[0.3em] uppercase opacity-80 mt-1.5`}
+        className={`${isDark ? "text-white" : "text-[#0B1526]"} font-bold text-[8px] tracking-[0.15em] uppercase opacity-80 mt-1.5`}
       >
-        GLOBAL
+        Kafumbu
       </span>
     </div>
   </div>
@@ -85,7 +98,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef(null);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const [mobileMediaOpen, setMobileMediaOpen] = useState(false);
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(null);
 
   // Scroll behavior
   const [showNavbarLinks, setShowNavbarLinks] = useState(true);
@@ -263,7 +276,7 @@ export default function Navbar() {
                     +243 XXX XXX XXX
                   </span>
                   <span className="text-[10px] font-black text-emerald-600 uppercase tracking-wider">
-                    contact@kafumbu.cd
+                    contact@Kafumbu.cd
                   </span>
                 </div>
               )}
@@ -554,7 +567,11 @@ export default function Navbar() {
                   {link.subLinks ? (
                     <div className="mb-1">
                       <button
-                        onClick={() => setMobileMediaOpen(!mobileMediaOpen)}
+                        onClick={() =>
+                          setMobileSubmenuOpen(
+                            mobileSubmenuOpen === link.key ? null : link.key,
+                          )
+                        }
                         className={`w-full py-4 px-4 text-sm font-bold tracking-widest uppercase rounded-xl flex items-center justify-between transition-all ${
                           link.subLinks.some(
                             (s) => location.pathname === s.path,
@@ -569,7 +586,7 @@ export default function Navbar() {
                       >
                         {t(`nav.${link.key}`)}
                         <svg
-                          className={`w-4 h-4 transition-transform duration-300 ${mobileMediaOpen ? "rotate-180" : ""}`}
+                          className={`w-4 h-4 transition-transform duration-300 ${mobileSubmenuOpen === link.key ? "rotate-180" : ""}`}
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -583,7 +600,7 @@ export default function Navbar() {
                         </svg>
                       </button>
                       <div
-                        className={`overflow-hidden transition-all duration-300 ${mobileMediaOpen ? "max-h-60 mt-2" : "max-h-0"}`}
+                        className={`overflow-hidden transition-all duration-300 ${mobileSubmenuOpen === link.key ? "max-h-60 mt-2" : "max-h-0"}`}
                       >
                         {link.subLinks.map((sub) => (
                           <Link

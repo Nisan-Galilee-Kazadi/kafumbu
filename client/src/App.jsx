@@ -22,6 +22,7 @@ import Blog from "./pages/Blog";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Project from "./pages/Project";
 import Transparence from "./pages/Transparence";
 import Partenaires from "./pages/Partenaires";
 import AdminLogin from "./pages/AdminLogin";
@@ -162,7 +163,7 @@ function AppLayout() {
 
           {/* Brochure - Blue */}
           <a
-            href="/brochure-kafumbu.pdf"
+            href="/brochure-kmc.pdf"
             download
             className="group/item relative transition-all duration-500 hover:scale-125 animate-cascade"
             style={{ animationDelay: "0.4s" }}

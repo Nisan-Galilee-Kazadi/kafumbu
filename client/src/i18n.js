@@ -7,6 +7,14 @@ export const translations = {
     nav: {
       home: "Accueil",
       smartCity: "Smart City",
+      project: "Projet",
+      habitation: "Habitation",
+      hopitaux: "Hôpitaux",
+      ecoles: "Écoles",
+      grandMarche: "Grand Marché",
+      tourisme: "Tourisme",
+      culture: "Culture pérène",
+      elevage: "Élevage laitier",
       barrage: "Barrage",
       invest: "Investir",
       funding: "Financement",
@@ -21,9 +29,9 @@ export const translations = {
 
     // ── Hero ─────────────────────────────────────────────────────────────
     hero: {
-      title: "Kafumbu Smart City",
-      subtitle: "& Barrage Hydroélectrique 15 MW",
-      desc: "Projet de construction d'une cité moderne de 100 000 maisons à Kafumbu et de son barrage hydroélectrique de 15 MW.",
+      title: "Kafumbu Melys City",
+      subtitle: "KMCpure – Eau, habitat, santé et culture durable",
+      desc: "Un projet de 600 logements, hôpitaux, écoles, grand marché, tourisme responsable, culture pérenne et élevage laitier alimenté par un réseau d'eau KMCpure.",
       ctaInvest: "Investir maintenant",
       ctaLearn: "Découvrir le projet",
       scrollDown: "Défiler vers le bas",
@@ -47,9 +55,9 @@ export const translations = {
       sectionTitle: "Deux Piliers d'un Avenir Durable",
       sectionDesc:
         "Un plan de développement intégré qui combine habitat moderne et énergie propre.",
-      smartCityTitle: "Kafumbu Smart City",
+      smartCityTitle: "Kafumbu Melys City",
       smartCityDesc:
-        "Construction d'une cité moderne de 100 000 maisons avec infrastructures complètes : routes, eau, électricité, écoles, hôpitaux et zones commerciales.",
+        "Développement de 600 logements modernes avec infrastructures complètes : eau KMCpure, écoles, hôpitaux, grand marché, tourisme et élevage laitier.",
       barrageTitle: "Barrage Hydroélectrique",
       barrageDesc:
         "Centrale hydroélectrique de 15 MW pour alimenter la cité et les régions environnantes en énergie propre et renouvelable.",
@@ -126,6 +134,14 @@ export const translations = {
     nav: {
       home: "Home",
       smartCity: "Smart City",
+      project: "Project",
+      habitation: "Housing",
+      hopitaux: "Hospitals",
+      ecoles: "Schools",
+      grandMarche: "Grand Market",
+      tourisme: "Tourism",
+      culture: "Culture",
+      elevage: "Dairy Farming",
       barrage: "Dam",
       invest: "Invest",
       funding: "Funding",
@@ -138,9 +154,9 @@ export const translations = {
       contact: "Contact",
     },
     hero: {
-      title: "Kafumbu Smart City",
-      subtitle: "& 15 MW Hydroelectric Dam",
-      desc: "Construction project for a modern city of 100,000 homes in Kafumbu and its 15 MW hydroelectric dam.",
+      title: "Kafumbu Melys City",
+      subtitle: "KMCpure – Water, housing, health and sustainable culture",
+      desc: "A project of 600 homes, hospitals, schools, a large market, responsible tourism, lasting culture and dairy farming supported by a KMCpure water network.",
       ctaInvest: "Invest Now",
       ctaLearn: "Discover the Project",
       scrollDown: "Scroll Down",
@@ -160,9 +176,9 @@ export const translations = {
       sectionTitle: "Two Pillars of a Sustainable Future",
       sectionDesc:
         "An integrated development plan combining modern housing and clean energy.",
-      smartCityTitle: "Kafumbu Smart City",
+      smartCityTitle: "Kafumbu Melys City",
       smartCityDesc:
-        "Construction of a modern city of 100,000 homes with full infrastructure: roads, water, electricity, schools, hospitals, and commercial zones.",
+        "Development of 600 modern homes with complete infrastructure: KMCpure water, schools, hospitals, large market, tourism and dairy farming.",
       barrageTitle: "Hydroelectric Dam",
       barrageDesc:
         "15 MW hydroelectric power plant to supply the city and surrounding regions with clean, renewable energy.",
@@ -228,6 +244,14 @@ export const translations = {
     nav: {
       home: "Inicio",
       smartCity: "Smart City",
+      project: "Proyecto",
+      habitation: "Vivienda",
+      hopitaux: "Hospitales",
+      ecoles: "Escuelas",
+      grandMarche: "Gran Mercado",
+      tourisme: "Turismo",
+      culture: "Cultura",
+      elevage: "Ganadería Lechera",
       barrage: "Presa",
       invest: "Invertir",
       funding: "Financiación",
@@ -240,9 +264,9 @@ export const translations = {
       contact: "Contacto",
     },
     hero: {
-      title: "Kafumbu Smart City",
-      subtitle: "& Presa Hidroeléctrica de 15 MW",
-      desc: "Proyecto de construcción de una ciudad moderna de 100.000 viviendas en Kafumbu y su presa hidroeléctrica de 15 MW.",
+      title: "Kafumbu Melys City",
+      subtitle: "KMCpure – Agua, vivienda, salud y cultura sostenible",
+      desc: "Un proyecto de 600 viviendas, hospitales, escuelas, un gran mercado, turismo responsable, cultura perdurable y ganadería lechera apoyado por una red de agua KMCpure.",
       ctaInvest: "Invertir Ahora",
       ctaLearn: "Descubrir el Proyecto",
       scrollDown: "Desplazarse hacia abajo",

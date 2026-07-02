@@ -10,7 +10,7 @@ import {
 import { motion, useInView, animate } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import heroImage from "../images/vu aerien.avif";
-import darkHeroImage from "../images/high-rise-buildings-modern-city.jpg";
+import darkHeroImage from "../images/hero-night.png";
 import { getPublicContent } from "../services/publicService";
 import { useFundraising } from "../context/FundraisingContext";
 
@@ -45,9 +45,9 @@ export default function Home() {
       .catch(() => {});
   }, []);
 
-  const currentHeroImage =
-    (isDark ? publicSettings.home_hero_dark_image : publicSettings.home_hero_image) ||
-    (isDark ? darkHeroImage : heroImage);
+  const currentHeroImage = isDark
+    ? publicSettings.home_hero_dark_image || darkHeroImage
+    : publicSettings.home_hero_image || heroImage;
 
   return (
     <main
@@ -65,10 +65,10 @@ export default function Home() {
             aria-hidden="true"
           />
           <div
-            className={`absolute inset-0 ${isDark ? "bg-[#071426]/75" : "bg-slate-950/28"}`}
+            className={`absolute inset-0 ${isDark ? "bg-[#071426]/55" : "bg-slate-950/28"}`}
           />
           <div
-            className={`absolute inset-0 ${isDark ? "bg-gradient-to-b from-black/30 via-black/20 to-black/75" : "bg-gradient-to-b from-black/10 via-black/5 to-black/45"}`}
+            className={`absolute inset-0 ${isDark ? "bg-gradient-to-b from-black/20 via-black/10 to-black/50" : "bg-gradient-to-b from-black/10 via-black/5 to-black/45"}`}
           />
         </div>
         <div
@@ -81,7 +81,7 @@ export default function Home() {
               <h1
                 className={`text-4xl font-black leading-[1.15] tracking-tight text-white drop-shadow-2xl sm:text-4xl lg:text-[53px] ${isDark ? "lg:text-white" : "lg:text-slate-950 lg:drop-shadow-none"}`}
               >
-                Kafumbu Smart City{" "}
+                Kafumbu Melys City (KMC){" "}
                 <span className="text-emerald-600">& {t("hero.subtitle")}</span>
               </h1>
 
@@ -127,7 +127,7 @@ export default function Home() {
             <div className="relative z-10 hidden min-h-[320px] overflow-hidden sm:min-h-[420px] lg:block lg:min-h-[520px]">
               <img
                 src={currentHeroImage}
-                alt="Kafumbu Smart City residential district"
+                alt="Kafumbu Melys City residential district"
                 className="h-[320px] w-full object-cover object-center shadow-2xl shadow-slate-900/10 sm:h-[420px] lg:h-[520px] lg:translate-x-8 lg:rounded-bl-[64px]"
               />
             </div>
@@ -140,7 +140,11 @@ export default function Home() {
         className={`${isDark ? "bg-[#0B1D35]" : "bg-slate-950"} py-28 text-white overflow-hidden`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FundingProgressBar isDark={isDark} raised={statistics.totalRaised} goal={fundingGoal} />
+          <FundingProgressBar
+            isDark={isDark}
+            raised={statistics.totalRaised}
+            goal={fundingGoal}
+          />
         </div>
       </section>
 
@@ -157,7 +161,7 @@ export default function Home() {
             {[
               {
                 icon: House,
-                value: 100000,
+                value: 600,
                 suffix: "",
                 label: t("stats.housesLabel"),
               },
@@ -378,7 +382,8 @@ function FundingProgressBar({ isDark, raised = 0, goal = 500000000 }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
-  const progress = goal > 0 ? Math.min((Number(raised || 0) / Number(goal)) * 100, 100) : 0;
+  const progress =
+    goal > 0 ? Math.min((Number(raised || 0) / Number(goal)) * 100, 100) : 0;
   const formattedRaised = Number(raised || 0).toLocaleString("fr-FR");
 
   useEffect(() => {

@@ -15,13 +15,13 @@ export default function About() {
   const translations = {
     fr: {
       hero_title: "À Propos",
-      hero_subtitle: "Kafumbu Smart City & Better Life",
+      hero_subtitle: "Kafumbu Melys City & Better Life",
       hero_desc:
         "Une collaboration visionnaire pour transformer les communautés à travers l'innovation et le développement durable.",
 
       section1_title: "Notre Partenariat",
       section1_desc:
-        "Kafumbu Smart City est le fruit d'une collaboration stratégique entre une vision ambitieuse et un engagement social profond. Better Life, en tant qu'accompagnateur et porteur du projet, apporte l'expertise, les ressources et la passion nécessaires pour transformer cette vision en réalité.",
+        "Kafumbu Melys City est le fruit d'une collaboration stratégique entre une vision ambitieuse et un engagement social profond. Better Life, en tant qu'accompagnateur et porteur du projet, apporte l'expertise, les ressources et la passion nécessaires pour transformer cette vision en réalité.",
 
       better_life_title: "Better Life - Accompagnateur et Porteur du Projet",
       better_life_desc:
@@ -29,7 +29,7 @@ export default function About() {
 
       jacques_title: "Mr JACQUES - Visionnaire et Porteur de la Mission",
       jacques_desc:
-        "Mr JACQUES est la figure clé derrière Better Life et le projet Kafumbu Smart City. Son engagement personnel et sa vision novatrice sont au cœur de cette transformation urbaine. Convaincu que le changement positif est possible, Mr JACQUES dirige les efforts pour créer une ville modèle qui améliore la qualité de vie de centaines de milliers de personnes.",
+        "Mr JACQUES est la figure clé derrière Better Life et le projet Kafumbu Melys City. Son engagement personnel et sa vision novatrice sont au cœur de cette transformation urbaine. Convaincu que le changement positif est possible, Mr JACQUES dirige les efforts pour créer une cité modèle qui améliore la qualité de vie de la communauté locale.",
       jacques_vision:
         "Sa vision : Un modèle urbain reproductible pour l'Afrique qui conjugue modernité, durabilité et inclusivité sociale.",
 
@@ -61,6 +61,7 @@ export default function About() {
       vision_points: [
         "Architecture moderne et durable",
         "Énergie renouvelable - Barrage hydroélectrique 15 MW",
+        "Réseau d'eau potable KMCpure pour distribution d'eau pure",
         "Smart City avec technologies de pointe",
         "Communauté inclusive et participative",
         "Éducation et santé de qualité",
@@ -331,8 +332,8 @@ export default function About() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2070"
-            alt="Community"
+            src="/images/hero-aerial-placeholder.svg"
+            alt="Kafumbu aerial view"
             className="w-full h-full object-cover opacity-50"
           />
           <div
@@ -366,8 +367,8 @@ export default function About() {
               className={`relative rounded-xl md:rounded-2xl border overflow-hidden ${isDark ? "border-white/10" : "border-slate-200"}`}
             >
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
-                alt="Mr JACQUES"
+                src="/images/mr-bill-kabongu-lwaba.jpg"
+                alt="Initiateur du projet"
                 className="w-full h-[400px] object-cover"
               />
             </div>
@@ -483,7 +484,7 @@ export default function About() {
               className={`relative rounded-xl md:rounded-2xl border overflow-hidden ${isDark ? "border-white/10" : "border-slate-200"}`}
             >
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2070"
+                src="/images/villa-placeholder.svg"
                 alt="Better Life Organization"
                 className="w-full h-[400px] object-cover"
               />

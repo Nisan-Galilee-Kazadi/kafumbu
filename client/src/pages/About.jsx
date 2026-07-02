@@ -1,8 +1,14 @@
-import { useLang } from '../context/LangContext';
-import { Link } from 'react-router-dom';
-import { FiArrowRight, FiHeart, FiTarget, FiUsers, FiTrendingUp } from 'react-icons/fi';
+import { useLang } from "../context/LangContext";
+import { Link } from "react-router-dom";
+import {
+  FiArrowRight,
+  FiHeart,
+  FiTarget,
+  FiUsers,
+  FiTrendingUp,
+} from "react-icons/fi";
 
-const KscLogo = ({ isDark = false }) => (
+const KmcLogo = ({ isDark = false }) => (
   <div className="relative flex h-28 w-28 items-center justify-center">
     <svg
       className={`absolute inset-0 h-full w-full ${isDark ? "text-white" : "text-[#0B1526]"}`}
@@ -28,11 +34,13 @@ const KscLogo = ({ isDark = false }) => (
 
     <div className="relative z-10 flex flex-col items-center pt-2">
       <span className="text-[26px] font-black leading-tight tracking-tight text-emerald-600 drop-shadow-sm">
-        KSC
+        KMC
       </span>
       <div className="h-[2px] w-9 bg-emerald-600/30" />
-      <span className={`${isDark ? "text-white" : "text-[#0B1526]"} mt-1.5 text-[8px] font-bold uppercase tracking-[0.3em] opacity-80`}>
-        GLOBAL
+      <span
+        className={`${isDark ? "text-white" : "text-[#0B1526]"} mt-1.5 text-[8px] font-bold uppercase tracking-[0.3em] opacity-80`}
+      >
+        Kafumbu
       </span>
     </div>
   </div>
@@ -40,32 +48,53 @@ const KscLogo = ({ isDark = false }) => (
 
 export default function About() {
   const { lang, theme } = useLang();
-  const isDark = theme === 'dark';
+  const isDark = theme === "dark";
 
   const translations = {
     fr: {
       hero_title: "À Propos",
-      hero_subtitle: "Kafumbu Smart City & Better Life",
-      hero_desc: "Une collaboration visionnaire pour transformer les communautés à travers l'innovation et le développement durable.",
-      
+      hero_subtitle: "Kafumbu Melys City & Better Life",
+      hero_desc:
+        "Une collaboration visionnaire pour bâtir 600 logements, hôpitaux, écoles, un grand marché, tourisme durable, culture pérenne et élevage laitier autour du réseau KMCpure.",
+
       section1_title: "Notre Partenariat",
-      section1_desc: "Kafumbu Smart City est le fruit d'une collaboration stratégique entre une vision ambitieuse et un engagement social profond. Better Life, en tant qu'accompagnateur et porteur du projet, apporte l'expertise, les ressources et la passion nécessaires pour transformer cette vision en réalité.",
-      
+      section1_desc:
+        "Kafumbu Melys City est le fruit d'une collaboration stratégique entre une vision ambitieuse et un engagement social profond. Better Life, en tant que porteur du projet, apporte l'expertise, les ressources et la passion nécessaires pour transformer cette vision en réalité.",
+
       better_life_title: "Better Life - Accompagnateur et Porteur du Projet",
-      better_life_desc: "Better Life est une organisation à but non lucratif engagée dans l'amélioration des conditions de vie et le développement communautaire durable. En tant que porteur et principal soutien de Kafumbu Smart City, Better Life met ses capacités au service d'une transformation urbaine profonde et durable.",
-      
-      jacques_title: "Mr JACQUES - Visionnaire et Porteur de la Mission",
-      jacques_desc: "Mr JACQUES est la figure clé derrière Better Life et le projet Kafumbu Smart City. Son engagement personnel et sa vision novatrice sont au cœur de cette transformation urbaine. Convaincu que le changement positif est possible, Mr JACQUES dirige les efforts pour créer une ville modèle qui améliore la qualité de vie de centaines de milliers de personnes.",
-      jacques_vision: "Sa vision : Un modèle urbain reproductible pour l'Afrique qui conjugue modernité, durabilité et inclusivité sociale.",
-      
+      better_life_desc:
+        "Better Life est une organisation engagée dans l'amélioration des conditions de vie et le développement communautaire durable. En tant que porteur du projet Kafumbu Melys City, Better Life met ses capacités au service d'une transformation urbaine profonde et durable.",
+
+      jacques_title: "Mr Bill Kabongu Lwaba - Initiateur du Projet",
+      jacques_desc:
+        "Mr Bill Kabongu Lwaba est la figure clé derrière Better Life et le projet Kafumbu Melys City. Son engagement personnel et sa vision novatrice sont au cœur de cette transformation urbaine. Convaincu que le changement positif est possible, il mène les efforts pour créer une ville modèle qui améliore la qualité de vie de la communauté.",
+      jacques_vision:
+        "Sa vision : Un modèle urbain reproductible qui conjugue modernité, durabilité et inclusivité sociale.",
+
       mission_title: "Notre Mission Commune",
       mission_list: [
-        { icon: FiTarget, title: "Transformer", desc: "Créer des villes intelligentes où technologie et humanité coexistent" },
-        { icon: FiHeart, title: "Impacter", desc: "Améliorer la qualité de vie de 500 000 habitants" },
-        { icon: FiUsers, title: "Inclure", desc: "Créer 50 000 emplois et opportunités économiques" },
-        { icon: FiTrendingUp, title: "Croître", desc: "Développer une économie locale robuste et durable" }
+        {
+          icon: FiTarget,
+          title: "Transformer",
+          desc: "Créer des villes intelligentes où technologie et humanité coexistent",
+        },
+        {
+          icon: FiHeart,
+          title: "Impacter",
+          desc: "Améliorer la qualité de vie de 500 000 habitants",
+        },
+        {
+          icon: FiUsers,
+          title: "Inclure",
+          desc: "Créer 50 000 emplois et opportunités économiques",
+        },
+        {
+          icon: FiTrendingUp,
+          title: "Croître",
+          desc: "Développer une économie locale robuste et durable",
+        },
       ],
-      
+
       vision_title: "Une Ville Pensée Autrement",
       vision_points: [
         "Architecture moderne et durable",
@@ -73,57 +102,104 @@ export default function About() {
         "Smart City avec technologies de pointe",
         "Communauté inclusive et participative",
         "Éducation et santé de qualité",
-        "Respect de l'environnement et écologie"
+        "Respect de l'environnement et écologie",
       ],
-      
+
       values_title: "Nos Valeurs Fondamentales",
       values: [
-        { title: "Excellence", desc: "Dans chaque détail, chaque projet, chaque interaction" },
-        { title: "Innovation", desc: "Utiliser la technologie pour résoudre les problèmes réels" },
-        { title: "Durabilité", desc: "Construire pour les générations futures" },
-        { title: "Transparence", desc: "Communication honnête et rapports réguliers" }
+        {
+          title: "Excellence",
+          desc: "Dans chaque détail, chaque projet, chaque interaction",
+        },
+        {
+          title: "Innovation",
+          desc: "Utiliser la technologie pour résoudre les problèmes réels",
+        },
+        {
+          title: "Durabilité",
+          desc: "Construire pour les générations futures",
+        },
+        {
+          title: "Transparence",
+          desc: "Communication honnête et rapports réguliers",
+        },
       ],
-      
+
       timeline_title: "Le Parcours du Projet",
       timeline: [
-        { year: "Vision", desc: "Conception du projet Kafumbu Smart City par Better Life" },
-        { year: "Développement", desc: "Études de faisabilité et planification détaillée" },
-        { year: "Construction", desc: "Phase de lancement des infrastructures majeures" },
-        { year: "Réalisation", desc: "Une ville modèle pour l'Afrique et le monde" }
+        {
+          year: "Vision",
+          desc: "Conception du projet Kafumbu Smart City par Better Life",
+        },
+        {
+          year: "Développement",
+          desc: "Études de faisabilité et planification détaillée",
+        },
+        {
+          year: "Construction",
+          desc: "Phase de lancement des infrastructures majeures",
+        },
+        {
+          year: "Réalisation",
+          desc: "Une ville modèle pour l'Afrique et le monde",
+        },
       ],
-      
+
       commitment_title: "Notre Engagement",
-      commitment_desc: "Better Life s'engage à accompagner chaque étape de Kafumbu Smart City avec professionnalisme, intégrité et vision à long terme. Nous construisons non pas pour aujourd'hui, mais pour les générations à venir.",
-      
+      commitment_desc:
+        "Better Life s'engage à accompagner chaque étape de Kafumbu Smart City avec professionnalisme, intégrité et vision à long terme. Nous construisons non pas pour aujourd'hui, mais pour les générations à venir.",
+
       cta_title: "Rejoignez la Transformation",
-      cta_desc: "Que vous soyez investisseur, partenaire technologique ou futur résident, il existe une place pour vous dans cette aventure transformatrice.",
+      cta_desc:
+        "Que vous soyez investisseur, partenaire technologique ou futur résident, il existe une place pour vous dans cette aventure transformatrice.",
       invest_btn: "Investir",
       partner_btn: "Devenir Partenaire",
-      contact_btn: "Nous Contacter"
+      contact_btn: "Nous Contacter",
     },
     en: {
       hero_title: "About",
       hero_subtitle: "Kafumbu Smart City & Better Life",
-      hero_desc: "A visionary collaboration to transform communities through innovation and sustainable development.",
-      
+      hero_desc:
+        "A visionary collaboration to transform communities through innovation and sustainable development.",
+
       section1_title: "Our Partnership",
-      section1_desc: "Kafumbu Smart City is the result of a strategic collaboration between an ambitious vision and deep social commitment. Better Life, as facilitator and project bearer, brings the expertise, resources and passion needed to turn this vision into reality.",
-      
+      section1_desc:
+        "Kafumbu Smart City is the result of a strategic collaboration between an ambitious vision and deep social commitment. Better Life, as facilitator and project bearer, brings the expertise, resources and passion needed to turn this vision into reality.",
+
       better_life_title: "Better Life - Facilitator and Project Bearer",
-      better_life_desc: "Better Life is a non-profit organization committed to improving living conditions and sustainable community development. As the bearer and main supporter of Kafumbu Smart City, Better Life leverages its capabilities in service of profound and sustainable urban transformation.",
-      
+      better_life_desc:
+        "Better Life is a non-profit organization committed to improving living conditions and sustainable community development. As the bearer and main supporter of Kafumbu Smart City, Better Life leverages its capabilities in service of profound and sustainable urban transformation.",
+
       jacques_title: "Mr JACQUES - Visionary and Mission Bearer",
-      jacques_desc: "Mr JACQUES is the key figure behind Better Life and the Kafumbu Smart City project. His personal commitment and innovative vision are at the heart of this urban transformation. Convinced that positive change is possible, Mr JACQUES leads efforts to create a model city that improves the quality of life for hundreds of thousands of people.",
-      jacques_vision: "His vision: A reproducible urban model for Africa that combines modernity, sustainability and social inclusivity.",
-      
+      jacques_desc:
+        "Mr JACQUES is the key figure behind Better Life and the Kafumbu Smart City project. His personal commitment and innovative vision are at the heart of this urban transformation. Convinced that positive change is possible, Mr JACQUES leads efforts to create a model city that improves the quality of life for hundreds of thousands of people.",
+      jacques_vision:
+        "His vision: A reproducible urban model that combines modernity, sustainability and social inclusivity.",
+
       mission_title: "Our Shared Mission",
       mission_list: [
-        { icon: FiTarget, title: "Transform", desc: "Create smart cities where technology and humanity coexist" },
-        { icon: FiHeart, title: "Impact", desc: "Improve quality of life for 500,000 residents" },
-        { icon: FiUsers, title: "Include", desc: "Create 50,000 jobs and economic opportunities" },
-        { icon: FiTrendingUp, title: "Grow", desc: "Develop a robust and sustainable local economy" }
+        {
+          icon: FiTarget,
+          title: "Transform",
+          desc: "Create smart cities where technology and humanity coexist",
+        },
+        {
+          icon: FiHeart,
+          title: "Impact",
+          desc: "Improve quality of life for 500,000 residents",
+        },
+        {
+          icon: FiUsers,
+          title: "Include",
+          desc: "Create 50,000 jobs and economic opportunities",
+        },
+        {
+          icon: FiTrendingUp,
+          title: "Grow",
+          desc: "Develop a robust and sustainable local economy",
+        },
       ],
-      
+
       vision_title: "A City Rethought",
       vision_points: [
         "Modern and sustainable architecture",
@@ -131,57 +207,95 @@ export default function About() {
         "Smart City with cutting-edge technologies",
         "Inclusive and participatory community",
         "Quality education and healthcare",
-        "Environmental respect and ecology"
+        "Environmental respect and ecology",
       ],
-      
+
       values_title: "Our Core Values",
       values: [
-        { title: "Excellence", desc: "In every detail, every project, every interaction" },
-        { title: "Innovation", desc: "Using technology to solve real problems" },
+        {
+          title: "Excellence",
+          desc: "In every detail, every project, every interaction",
+        },
+        {
+          title: "Innovation",
+          desc: "Using technology to solve real problems",
+        },
         { title: "Sustainability", desc: "Building for future generations" },
-        { title: "Transparency", desc: "Honest communication and regular reports" }
+        {
+          title: "Transparency",
+          desc: "Honest communication and regular reports",
+        },
       ],
-      
+
       timeline_title: "Project Journey",
       timeline: [
-        { year: "Vision", desc: "Design of Kafumbu Smart City project by Better Life" },
-        { year: "Development", desc: "Feasibility studies and detailed planning" },
+        {
+          year: "Vision",
+          desc: "Design of Kafumbu Smart City project by Better Life",
+        },
+        {
+          year: "Development",
+          desc: "Feasibility studies and detailed planning",
+        },
         { year: "Construction", desc: "Major infrastructure launch phase" },
-        { year: "Realization", desc: "A model city for Africa and the world" }
+        { year: "Realization", desc: "A model city for Africa and the world" },
       ],
-      
+
       commitment_title: "Our Commitment",
-      commitment_desc: "Better Life is committed to accompanying every stage of Kafumbu Smart City with professionalism, integrity and long-term vision. We build not for today, but for generations to come.",
-      
+      commitment_desc:
+        "Better Life is committed to accompanying every stage of Kafumbu Smart City with professionalism, integrity and long-term vision. We build not for today, but for generations to come.",
+
       cta_title: "Join the Transformation",
-      cta_desc: "Whether you are an investor, technology partner or future resident, there is a place for you in this transformative adventure.",
+      cta_desc:
+        "Whether you are an investor, technology partner or future resident, there is a place for you in this transformative adventure.",
       invest_btn: "Invest",
       partner_btn: "Become Partner",
-      contact_btn: "Contact Us"
+      contact_btn: "Contact Us",
     },
     es: {
       hero_title: "Acerca De",
-      hero_subtitle: "Kafumbu Smart City & Better Life",
-      hero_desc: "Una colaboración visionaria para transformar comunidades a través de la innovación y el desarrollo sostenible.",
-      
+      hero_subtitle: "Kafumbu Melys City & Better Life",
+      hero_desc:
+        "Una colaboración visionaria para construir 600 viviendas, hospitales, escuelas, un gran mercado, turismo sostenible, cultura perdurable y ganadería lechera impulsada por la red KMCpure.",
+
       section1_title: "Nuestro Partenariado",
-      section1_desc: "Kafumbu Smart City es el resultado de una colaboración estratégica entre una visión ambiciosa y un profundo compromiso social. Better Life, como facilitador y portador del proyecto, aporta la experiencia, recursos y pasión necesarios para convertir esta visión en realidad.",
-      
+      section1_desc:
+        "Kafumbu Melys City es el resultado de una colaboración estratégica entre una visión ambiciosa y un compromiso social profundo. Better Life, como promotor del proyecto, aporta la experiencia, recursos y pasión necesarios para convertir esta visión en realidad.",
+
       better_life_title: "Better Life - Facilitador y Portador del Proyecto",
-      better_life_desc: "Better Life es una organización sin fines de lucro comprometida con mejorar las condiciones de vida y el desarrollo comunitario sostenible. Como portador y principal apoyo de Kafumbu Smart City, Better Life aprovecha sus capacidades al servicio de una transformación urbana profunda y sostenible.",
-      
-      jacques_title: "Mr JACQUES - Visionario y Portador de la Misión",
-      jacques_desc: "Mr JACQUES es la figura clave detrás de Better Life y del proyecto Kafumbu Smart City. Su compromiso personal y su visión innovadora están en el corazón de esta transformación urbana. Convencido de que el cambio positivo es posible, Mr JACQUES lidera los esfuerzos para crear una ciudad modelo que mejore la calidad de vida de cientos de miles de personas.",
-      jacques_vision: "Su visión: Un modelo urbano reproducible para África que conjugue modernidad, sostenibilidad e inclusividad social.",
-      
+      better_life_desc:
+        "Better Life está comprometida con mejorar las condiciones de vida y el desarrollo comunitario sostenible. Como promotor de Kafumbu Melys City, Better Life aprovecha sus capacidades para ofrecer una transformación urbana profunda y sostenible.",
+
+      jacques_title: "Mr Bill Kabongu Lwaba - Iniciador del Proyecto",
+      jacques_desc:
+        "Mr Bill Kabongu Lwaba es la figura clave detrás de Better Life y del proyecto Kafumbu Melys City. Su compromiso personal y su visión innovadora están en el corazón de esta transformación urbana. Convencido de que el cambio positivo es posible, lidera los esfuerzos para crear una ciudad modelo que mejore la calidad de vida de la comunidad.",
+      jacques_vision:
+        "Su visión: Un modelo urbano reproducible que combine modernidad, sostenibilidad e inclusividad social.",
+
       mission_title: "Nuestra Misión Compartida",
       mission_list: [
-        { icon: FiTarget, title: "Transformar", desc: "Crear ciudades inteligentes donde la tecnología y la humanidad coexisten" },
-        { icon: FiHeart, title: "Impactar", desc: "Mejorar la calidad de vida de 500.000 residentes" },
-        { icon: FiUsers, title: "Incluir", desc: "Crear 50.000 empleos y oportunidades económicas" },
-        { icon: FiTrendingUp, title: "Crecer", desc: "Desarrollar una economía local robusta y sostenible" }
+        {
+          icon: FiTarget,
+          title: "Transformar",
+          desc: "Crear ciudades inteligentes donde la tecnología y la humanidad coexisten",
+        },
+        {
+          icon: FiHeart,
+          title: "Impactar",
+          desc: "Mejorar la calidad de vida de 500.000 residentes",
+        },
+        {
+          icon: FiUsers,
+          title: "Incluir",
+          desc: "Crear 50.000 empleos y oportunidades económicas",
+        },
+        {
+          icon: FiTrendingUp,
+          title: "Crecer",
+          desc: "Desarrollar una economía local robusta y sostenible",
+        },
       ],
-      
+
       vision_title: "Una Ciudad Repensada",
       vision_points: [
         "Arquitectura moderna y sostenible",
@@ -189,57 +303,91 @@ export default function About() {
         "Smart City con tecnologías de punta",
         "Comunidad inclusiva y participativa",
         "Educación y salud de calidad",
-        "Respeto ambiental y ecología"
+        "Respeto ambiental y ecología",
       ],
-      
+
       values_title: "Nuestros Valores Fundamentales",
       values: [
-        { title: "Excelencia", desc: "En cada detalle, cada proyecto, cada interacción" },
-        { title: "Innovación", desc: "Usar la tecnología para resolver problemas reales" },
-        { title: "Sostenibilidad", desc: "Construir para las generaciones futuras" },
-        { title: "Transparencia", desc: "Comunicación honesta e informes regulares" }
+        {
+          title: "Excelencia",
+          desc: "En cada detalle, cada proyecto, cada interacción",
+        },
+        {
+          title: "Innovación",
+          desc: "Usar la tecnología para resolver problemas reales",
+        },
+        {
+          title: "Sostenibilidad",
+          desc: "Construir para las generaciones futuras",
+        },
+        {
+          title: "Transparencia",
+          desc: "Comunicación honesta e informes regulares",
+        },
       ],
-      
+
       timeline_title: "El Camino del Proyecto",
       timeline: [
-        { year: "Visión", desc: "Diseño del proyecto Kafumbu Smart City por Better Life" },
-        { year: "Desarrollo", desc: "Estudios de viabilidad y planificación detallada" },
-        { year: "Construcción", desc: "Fase de lanzamiento de infraestructuras mayores" },
-        { year: "Realización", desc: "Una ciudad modelo para África y el mundo" }
+        {
+          year: "Visión",
+          desc: "Diseño del proyecto Kafumbu Smart City por Better Life",
+        },
+        {
+          year: "Desarrollo",
+          desc: "Estudios de viabilidad y planificación detallada",
+        },
+        {
+          year: "Construcción",
+          desc: "Fase de lanzamiento de infraestructuras mayores",
+        },
+        {
+          year: "Realización",
+          desc: "Una ciudad modelo para África y el mundo",
+        },
       ],
-      
+
       commitment_title: "Nuestro Compromiso",
-      commitment_desc: "Better Life se compromete a acompañar cada etapa de Kafumbu Smart City con profesionalismo, integridad y visión a largo plazo. Construimos no para hoy, sino para las generaciones por venir.",
-      
+      commitment_desc:
+        "Better Life se compromete a acompañar cada etapa de Kafumbu Smart City con profesionalismo, integridad y visión a largo plazo. Construimos no para hoy, sino para las generaciones por venir.",
+
       cta_title: "Únete a la Transformación",
-      cta_desc: "Ya sea inversor, socio tecnológico o futuro residente, hay un lugar para ti en esta aventura transformativa.",
+      cta_desc:
+        "Ya sea inversor, socio tecnológico o futuro residente, hay un lugar para ti en esta aventura transformativa.",
       invest_btn: "Invertir",
       partner_btn: "Convertirse en Socio",
-      contact_btn: "Contáctenos"
-    }
+      contact_btn: "Contáctenos",
+    },
   };
 
   const t = translations[lang] || translations.fr;
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${isDark ? 'bg-[#071426]' : 'bg-slate-50'}`}>
-      
+    <div
+      className={`min-h-screen transition-colors duration-500 ${isDark ? "bg-[#071426]" : "bg-slate-50"}`}
+    >
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2070" 
-            alt="Community" 
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2070"
+            alt="Community"
             className="w-full h-full object-cover opacity-50"
           />
-          <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-[#071426]/80 to-[#071426]' : 'bg-gradient-to-b from-white/80 to-slate-50'}`} />
+          <div
+            className={`absolute inset-0 ${isDark ? "bg-gradient-to-b from-[#071426]/80 to-[#071426]" : "bg-gradient-to-b from-white/80 to-slate-50"}`}
+          />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-          <h1 className={`text-5xl md:text-7xl font-black mb-6 tracking-tighter ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            {t.hero_title} <span className="text-emerald-500">Kafumbu</span>
+          <h1
+            className={`text-5xl md:text-7xl font-black mb-6 tracking-tighter ${isDark ? "text-white" : "text-slate-900"}`}
+          >
+            {t.hero_title}{" "}
+            <span className="text-emerald-500">{t.hero_subtitle}</span>
           </h1>
-          <p className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          <p
+            className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${isDark ? "text-slate-400" : "text-slate-500"}`}
+          >
             {t.hero_desc}
           </p>
         </div>
@@ -249,43 +397,68 @@ export default function About() {
       <section className="max-w-7xl mx-auto px-4 lg:px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-center">
           <div className="relative">
-            <div className={`rounded-lg border p-2 ${isDark ? 'border-white/10 bg-white/5' : 'border-slate-200 bg-white shadow-sm'}`}>
-              <img 
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=900" 
-                alt="Mr JACQUES" 
+            <div
+              className={`rounded-lg border p-2 ${isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white shadow-sm"}`}
+            >
+              <img
+                src="/images/mr-bill-kabongu-lwaba.jpg"
+                alt="Mr Bill Kabongu Lwaba"
                 className="h-[480px] w-full rounded-md object-cover object-center"
               />
             </div>
-            <div className={`absolute bottom-5 left-5 right-5 rounded-md border px-5 py-4 backdrop-blur ${
-              isDark ? 'border-white/10 bg-[#071426]/85 text-white' : 'border-white/70 bg-white/90 text-slate-900 shadow-sm'
-            }`}>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-emerald-500">Leadership</p>
-              <p className="mt-1 text-lg font-black">Mr JACQUES</p>
+            <div
+              className={`absolute bottom-5 left-5 right-5 rounded-md border px-5 py-4 backdrop-blur ${
+                isDark
+                  ? "border-white/10 bg-[#071426]/85 text-white"
+                  : "border-white/70 bg-white/90 text-slate-900 shadow-sm"
+              }`}
+            >
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-emerald-500">
+                Leadership
+              </p>
+              <p className="mt-1 text-lg font-black">Mr Bill KABONGU LWABA</p>
             </div>
           </div>
 
           <div className="space-y-7">
             <div>
-              <p className={`mb-3 text-xs font-black uppercase tracking-[0.24em] ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>
+              <p
+                className={`mb-3 text-xs font-black uppercase tracking-[0.24em] ${isDark ? "text-emerald-400" : "text-emerald-700"}`}
+              >
                 Vision personnelle
               </p>
-              <h2 className={`text-3xl md:text-5xl font-black leading-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
-              {t.jacques_title}
+              <h2
+                className={`text-3xl md:text-5xl font-black leading-tight ${isDark ? "text-white" : "text-slate-900"}`}
+              >
+                {t.jacques_title}
               </h2>
             </div>
             <div className="space-y-4">
-              <p className={`text-lg leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <p
+                className={`text-lg leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}
+              >
                 {t.jacques_desc}
               </p>
-              <div className={`rounded-lg border-l-4 p-6 ${isDark ? 'bg-white/5 border-l-emerald-400 border-y-white/10 border-r-white/10' : 'bg-white border-l-emerald-600 border-y-slate-200 border-r-slate-200 shadow-sm'}`}>
-                <p className={`text-lg font-bold leading-relaxed ${isDark ? 'text-emerald-300' : 'text-emerald-800'}`}>
+              <div
+                className={`rounded-lg border-l-4 p-6 ${isDark ? "bg-white/5 border-l-emerald-400 border-y-white/10 border-r-white/10" : "bg-white border-l-emerald-600 border-y-slate-200 border-r-slate-200 shadow-sm"}`}
+              >
+                <p
+                  className={`text-lg font-bold leading-relaxed ${isDark ? "text-emerald-300" : "text-emerald-800"}`}
+                >
                   {t.jacques_vision}
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-3 pt-2">
-                {['Vision', 'Terrain', 'Impact'].map((label) => (
-                  <div key={label} className={`rounded-lg border px-4 py-3 ${isDark ? 'border-white/10 bg-white/5' : 'border-slate-200 bg-white'}`}>
-                    <p className={`text-sm font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>{label}</p>
+                {["Vision", "Terrain", "Impact"].map((label) => (
+                  <div
+                    key={label}
+                    className={`rounded-lg border px-4 py-3 ${isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white"}`}
+                  >
+                    <p
+                      className={`text-sm font-black ${isDark ? "text-white" : "text-slate-900"}`}
+                    >
+                      {label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -295,16 +468,22 @@ export default function About() {
       </section>
 
       {/* Better Life & KSC Partnership - Logo Fusion Section */}
-      <section className={`py-20 ${isDark ? 'bg-[#0A1A2F]' : 'bg-white'}`}>
+      <section className={`py-20 ${isDark ? "bg-[#0A1A2F]" : "bg-white"}`}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-12 items-center">
-            <div className={`logo-marriage-stage rounded-lg border p-6 md:p-10 ${isDark ? 'border-white/10 bg-[#071426]' : 'border-slate-200 bg-slate-50 shadow-sm'}`}>
+            <div
+              className={`logo-marriage-stage rounded-lg border p-6 md:p-10 ${isDark ? "border-white/10 bg-[#071426]" : "border-slate-200 bg-slate-50 shadow-sm"}`}
+            >
               <div className="flex min-h-[360px] items-center justify-center">
                 <div className="w-full max-w-md">
                   <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-                    <div className={`logo-marriage-card logo-marriage-left flex h-40 items-center justify-center rounded-lg border p-5 ${
-                      isDark ? 'border-white/10 bg-white' : 'border-slate-200 bg-white'
-                    }`}>
+                    <div
+                      className={`logo-marriage-card logo-marriage-left flex h-40 items-center justify-center rounded-lg border p-5 ${
+                        isDark
+                          ? "border-white/10 bg-white"
+                          : "border-slate-200 bg-white"
+                      }`}
+                    >
                       <img
                         src="/betterlife-logo.webp"
                         alt="Logo Better Life"
@@ -314,46 +493,69 @@ export default function About() {
 
                     <div className="relative flex items-center justify-center">
                       <div className="logo-marriage-line" />
-                      <div className={`logo-marriage-heart relative z-10 flex h-12 w-12 items-center justify-center rounded-full border ${
-                      isDark ? 'border-white/15 bg-[#071426]' : 'border-slate-200 bg-white shadow-sm'
-                    }`}>
+                      <div
+                        className={`logo-marriage-heart relative z-10 flex h-12 w-12 items-center justify-center rounded-full border ${
+                          isDark
+                            ? "border-white/15 bg-[#071426]"
+                            : "border-slate-200 bg-white shadow-sm"
+                        }`}
+                      >
                         <FiHeart className="text-emerald-500" size={20} />
                       </div>
                     </div>
 
-                    <div className={`logo-marriage-card logo-marriage-right flex h-40 items-center justify-center rounded-lg border ${
-                      isDark ? 'border-white/10 bg-white/5' : 'border-slate-200 bg-white'
-                    }`}>
-                      <KscLogo isDark={isDark} />
+                    <div
+                      className={`logo-marriage-card logo-marriage-right flex h-40 items-center justify-center rounded-lg border ${
+                        isDark
+                          ? "border-white/10 bg-white/5"
+                          : "border-slate-200 bg-white"
+                      }`}
+                    >
+                      <KmcLogo isDark={isDark} />
                     </div>
                   </div>
 
                   <div className="partner-pill mt-6 rounded-md bg-slate-950 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white">
-                    Better Life x Kafumbu Smart City
+                    Better Life x Kafumbu Melys City
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-6 animate-stagger-children">
-              <p className={`text-xs font-black uppercase tracking-[0.24em] ${isDark ? 'text-emerald-400' : 'text-emerald-700'}`}>
+              <p
+                className={`text-xs font-black uppercase tracking-[0.24em] ${isDark ? "text-emerald-400" : "text-emerald-700"}`}
+              >
                 Fusion du porteur et du projet
               </p>
-              <h3 className={`text-3xl md:text-5xl font-black leading-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              <h3
+                className={`text-3xl md:text-5xl font-black leading-tight ${isDark ? "text-white" : "text-slate-900"}`}
+              >
                 {t.section1_title}
               </h3>
-              <p className={`text-lg leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <p
+                className={`text-lg leading-relaxed ${isDark ? "text-slate-300" : "text-slate-600"}`}
+              >
                 {t.section1_desc}
               </p>
               <div className="grid gap-3 sm:grid-cols-3">
-                {['Porteur social', 'Projet urbain', 'Impact durable'].map((label) => (
-                  <div key={label} className={`rounded-lg border px-4 py-4 ${isDark ? 'border-white/10 bg-white/5' : 'border-slate-200 bg-slate-50'}`}>
-                    <p className={`text-sm font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>{label}</p>
-                  </div>
-                ))}
+                {["Porteur social", "Projet urbain", "Impact durable"].map(
+                  (label) => (
+                    <div
+                      key={label}
+                      className={`rounded-lg border px-4 py-4 ${isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-slate-50"}`}
+                    >
+                      <p
+                        className={`text-sm font-black ${isDark ? "text-white" : "text-slate-900"}`}
+                      >
+                        {label}
+                      </p>
+                    </div>
+                  ),
+                )}
               </div>
-              <Link 
-                to="/investir" 
+              <Link
+                to="/investir"
                 className="inline-flex items-center gap-3 rounded-lg bg-slate-900 px-8 py-4 text-sm font-black uppercase tracking-widest text-white transition-all hover:scale-105"
               >
                 {t.invest_btn} <FiArrowRight size={20} />
@@ -367,32 +569,42 @@ export default function About() {
       <section className="max-w-7xl mx-auto px-4 lg:px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <p className={`text-xs font-black uppercase tracking-[0.24em] ${isDark ? 'text-[#0f70b7]' : 'text-[#0f70b7]'}`}>
+            <p
+              className={`text-xs font-black uppercase tracking-[0.24em] ${isDark ? "text-[#0f70b7]" : "text-[#0f70b7]"}`}
+            >
               Accompagnement Better Life
             </p>
-            <h3 className={`text-2xl md:text-3xl font-black ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <h3
+              className={`text-2xl md:text-3xl font-black ${isDark ? "text-white" : "text-slate-900"}`}
+            >
               {t.better_life_title}
             </h3>
-            <p className={`text-lg leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            <p
+              className={`text-lg leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}
+            >
               {t.better_life_desc}
             </p>
           </div>
 
-          <div className={`rounded-lg border p-2 ${isDark ? 'border-white/10 bg-white/5' : 'border-slate-200 bg-white shadow-sm'}`}>
-              <img 
-                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1200" 
-                alt="Better Life Organization" 
-                className="h-[400px] w-full rounded-md object-cover"
-              />
+          <div
+            className={`rounded-lg border p-2 ${isDark ? "border-white/10 bg-white/5" : "border-slate-200 bg-white shadow-sm"}`}
+          >
+            <img
+              src="/images/mr-bill-kabongu-lwaba.jpg"
+              alt="Mr Bill Kabongu Lwaba"
+              className="h-[400px] w-full rounded-md object-cover"
+            />
           </div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className={`py-20 ${isDark ? 'bg-white/5' : 'bg-slate-100'}`}>
+      <section className={`py-20 ${isDark ? "bg-white/5" : "bg-slate-100"}`}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl md:text-4xl font-black mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <h2
+              className={`text-3xl md:text-4xl font-black mb-4 ${isDark ? "text-white" : "text-slate-900"}`}
+            >
               {t.mission_title}
             </h2>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
@@ -400,14 +612,23 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.mission_list.map((item, i) => (
-              <div key={i} className={`p-6 rounded-xl border transition-all ${
-                isDark ? 'bg-[#071426] border-white/10 hover:border-emerald-500/50' : 'bg-white border-slate-200 hover:shadow-xl'
-              }`}>
+              <div
+                key={i}
+                className={`p-6 rounded-xl border transition-all ${
+                  isDark
+                    ? "bg-[#071426] border-white/10 hover:border-emerald-500/50"
+                    : "bg-white border-slate-200 hover:shadow-xl"
+                }`}
+              >
                 <item.icon size={32} className="text-emerald-500 mb-4" />
-                <h3 className={`text-lg font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                <h3
+                  className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-slate-900"}`}
+                >
                   {item.title}
                 </h3>
-                <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                <p
+                  className={`text-sm leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}
+                >
                   {item.desc}
                 </p>
               </div>
@@ -418,16 +639,25 @@ export default function About() {
 
       {/* Vision Section */}
       <section className="max-w-7xl mx-auto px-4 lg:px-6 py-20">
-        <h2 className={`text-3xl md:text-4xl font-black mb-12 text-center ${isDark ? 'text-white' : 'text-slate-900'}`}>
+        <h2
+          className={`text-3xl md:text-4xl font-black mb-12 text-center ${isDark ? "text-white" : "text-slate-900"}`}
+        >
           {t.vision_title}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {t.vision_points.map((point, i) => (
-            <div key={i} className={`p-6 rounded-xl border ${
-              isDark ? 'bg-white/5 border-white/10' : 'bg-white border-slate-200'
-            }`}>
-              <p className={`text-lg font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+            <div
+              key={i}
+              className={`p-6 rounded-xl border ${
+                isDark
+                  ? "bg-white/5 border-white/10"
+                  : "bg-white border-slate-200"
+              }`}
+            >
+              <p
+                className={`text-lg font-semibold ${isDark ? "text-slate-300" : "text-slate-700"}`}
+              >
                 {point}
               </p>
             </div>
@@ -436,10 +666,12 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className={`py-20 ${isDark ? 'bg-white/5' : 'bg-slate-100'}`}>
+      <section className={`py-20 ${isDark ? "bg-white/5" : "bg-slate-100"}`}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl md:text-4xl font-black mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            <h2
+              className={`text-3xl md:text-4xl font-black mb-4 ${isDark ? "text-white" : "text-slate-900"}`}
+            >
               {t.values_title}
             </h2>
             <div className="w-20 h-1.5 bg-emerald-500 mx-auto rounded-full" />
@@ -447,13 +679,22 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.values.map((value, i) => (
-              <div key={i} className={`p-8 rounded-xl border text-center transition-all ${
-                isDark ? 'bg-[#071426] border-white/10 hover:border-emerald-500/50' : 'bg-white border-slate-200 hover:shadow-lg'
-              }`}>
-                <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              <div
+                key={i}
+                className={`p-8 rounded-xl border text-center transition-all ${
+                  isDark
+                    ? "bg-[#071426] border-white/10 hover:border-emerald-500/50"
+                    : "bg-white border-slate-200 hover:shadow-lg"
+                }`}
+              >
+                <h3
+                  className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-slate-900"}`}
+                >
                   {value.title}
                 </h3>
-                <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                <p
+                  className={`text-sm leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}
+                >
                   {value.desc}
                 </p>
               </div>
@@ -464,22 +705,35 @@ export default function About() {
 
       {/* Timeline Section */}
       <section className="max-w-7xl mx-auto px-4 lg:px-6 py-20">
-        <h2 className={`text-3xl md:text-4xl font-black mb-12 text-center ${isDark ? 'text-white' : 'text-slate-900'}`}>
+        <h2
+          className={`text-3xl md:text-4xl font-black mb-12 text-center ${isDark ? "text-white" : "text-slate-900"}`}
+        >
           {t.timeline_title}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {t.timeline.map((item, i) => (
-            <div key={i} className={`p-6 rounded-xl border relative ${
-              isDark ? 'bg-white/5 border-emerald-500/50' : 'bg-white border-emerald-500/50'
-            }`}>
-              <div className={`text-2xl font-black mb-2 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+            <div
+              key={i}
+              className={`p-6 rounded-xl border relative ${
+                isDark
+                  ? "bg-white/5 border-emerald-500/50"
+                  : "bg-white border-emerald-500/50"
+              }`}
+            >
+              <div
+                className={`text-2xl font-black mb-2 ${isDark ? "text-emerald-400" : "text-emerald-600"}`}
+              >
                 {i + 1}
               </div>
-              <h3 className={`text-lg font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              <h3
+                className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-slate-900"}`}
+              >
                 {item.year}
               </h3>
-              <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              <p
+                className={`text-sm ${isDark ? "text-slate-400" : "text-slate-600"}`}
+              >
                 {item.desc}
               </p>
             </div>
@@ -488,12 +742,16 @@ export default function About() {
       </section>
 
       {/* Commitment Section */}
-      <section className={`py-20 ${isDark ? 'bg-white/5' : 'bg-slate-100'}`}>
+      <section className={`py-20 ${isDark ? "bg-white/5" : "bg-slate-100"}`}>
         <div className="max-w-3xl mx-auto px-4 lg:px-6 text-center">
-          <h2 className={`text-3xl md:text-4xl font-black mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+          <h2
+            className={`text-3xl md:text-4xl font-black mb-6 ${isDark ? "text-white" : "text-slate-900"}`}
+          >
             {t.commitment_title}
           </h2>
-          <p className={`text-lg leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+          <p
+            className={`text-lg leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}
+          >
             {t.commitment_desc}
           </p>
         </div>
@@ -501,36 +759,40 @@ export default function About() {
 
       {/* CTA Section */}
       <section className="max-w-5xl mx-auto px-6 py-24 text-center">
-        <h2 className={`text-3xl md:text-4xl font-black mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+        <h2
+          className={`text-3xl md:text-4xl font-black mb-4 ${isDark ? "text-white" : "text-slate-900"}`}
+        >
           {t.cta_title}
         </h2>
-        <p className={`text-lg mb-8 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+        <p
+          className={`text-lg mb-8 leading-relaxed ${isDark ? "text-slate-400" : "text-slate-600"}`}
+        >
           {t.cta_desc}
         </p>
-        
+
         <div className="flex flex-wrap justify-center gap-4">
-          <Link 
-            to="/investir" 
+          <Link
+            to="/investir"
             className="inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white font-black text-sm uppercase tracking-widest rounded-xl hover:scale-105 transition-all"
           >
             {t.invest_btn} <FiArrowRight size={20} />
           </Link>
-          <Link 
-            to="/partenaires" 
+          <Link
+            to="/partenaires"
             className={`inline-flex items-center gap-3 px-8 py-4 font-black text-sm uppercase tracking-widest rounded-xl transition-all ${
-              isDark 
-                ? 'bg-emerald-900/30 text-emerald-400 border border-emerald-500 hover:scale-105' 
-                : 'bg-emerald-50 text-emerald-700 border border-emerald-300 hover:scale-105'
+              isDark
+                ? "bg-emerald-900/30 text-emerald-400 border border-emerald-500 hover:scale-105"
+                : "bg-emerald-50 text-emerald-700 border border-emerald-300 hover:scale-105"
             }`}
           >
             {t.partner_btn} <FiArrowRight size={20} />
           </Link>
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className={`inline-flex items-center gap-3 px-8 py-4 font-black text-sm uppercase tracking-widest rounded-xl transition-all border ${
-              isDark 
-                ? 'bg-white/5 text-white border-white/20 hover:scale-105' 
-                : 'bg-white text-slate-900 border-slate-300 hover:scale-105'
+              isDark
+                ? "bg-white/5 text-white border-white/20 hover:scale-105"
+                : "bg-white text-slate-900 border-slate-300 hover:scale-105"
             }`}
           >
             {t.contact_btn} <FiArrowRight size={20} />
@@ -907,5 +1169,5 @@ const AboutLegacy = () => {
         </motion.div>
       </div>
     </div>
-   );
-}
+  );
+};
